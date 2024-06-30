@@ -36,11 +36,6 @@ function App() {
   //   await dispatch(actionRefreshToken());
   // }
 
- 
-
-  /* The `useEffect` hook in the provided code snippet is responsible for checking
-  if a token is stored in the session storage. If a token is found, it adds the
-  token to the Axios instance using the `addTokenJwtToAxiosInstance` function. */
   useEffect(() => {
     const token = sessionStorage.getItem('accessToken');
     if (token) {
