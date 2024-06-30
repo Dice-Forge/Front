@@ -15,36 +15,12 @@ function Profile() {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.auth.user);
   const games = useAppSelector((state) => state.game.games);
-  // const [games, setGames] = useState<IGames[]>([]);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(actionSearchGames());
     dispatch(actionResetCurrentGame());
     
   }, []);
-
-  // useEffect(() => {
-  //   const getGame = async () => {
-  //     try {
-  //       const response = await axiosInstance.get(`/profile/${user.userId}`);
-  //       console.log('je suis la reponse du get de profile', response);
-  //       setGames(response.data);
-  //     } catch (error) {
-  //       console.log('error', error);
-  //     }
-  //   };
-  //   getGame();
-  // }, [user]);
-
-  // const deleteGame = async (gameId: number) => {
-  //   try {
-  //     await axiosInstance.delete(`/game/${gameId}`);
-  //     setGames((prevGames) => prevGames.filter((game) => game.id !== gameId));
-  //   } catch (error) {
-  //     console.log('Erreur lors de la suppression de la partie', error);
-  //   }
-  // };
 
   return (
     <div className="profile">

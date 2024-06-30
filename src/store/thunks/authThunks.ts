@@ -4,7 +4,6 @@ import type { RootState } from '..';
 import axiosInstance, { addTokenJwtToAxiosInstance } from '../../axios/axios';
 import { addRefreshTokenToLocalStorage } from '../../localStorage/localStorage';
 import { addAccessTokenToSessionStorage } from '../../sessionStorage/sessionStorage';
-// import { addTokenAndPseudoToLocalStorage } from '../../localStorage/localStorage';
 
 const actionCheckLogin = createAsyncThunk(
   'auth/CHECK_LOGIN',
@@ -76,7 +75,6 @@ const actionResetPassword = createAsyncThunk('auth/RESET_PASSWORD', async (_, th
     password: state.auth.resetPassword.password,
     confirmPassword: state.auth.resetPassword.confirmPassword,
   });
-  console.log('je suis la reponse du reset password', response);
   return response.data;
   
 });

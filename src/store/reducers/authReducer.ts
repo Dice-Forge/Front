@@ -121,13 +121,11 @@ const authReducer = createReducer(userInitialState, (builder) => {
       state.refreshToken = action.payload;
     })
     .addCase(actionRefreshToken.fulfilled, (state, action) => {
-      console.log('fullfiled');
 
       addTokenJwtToAxiosInstance(action.payload);
       addAccessTokenToSessionStorage(action.payload);
     })
     .addCase(actionRefreshToken.rejected, (state, action) => {
-      console.log('error');
 
       state.isLogged = false;
       state.user = {
@@ -191,19 +189,7 @@ const authReducer = createReducer(userInitialState, (builder) => {
 
       state.isLogged = false;
     })
-    // .addCase(actionIsLogged, (state, action) => {
-    //   console.log('je suis l action :', action.payload);
-    //   console.log('je suis le state reducer :', state);
 
-    //   if (action.payload) {
-    //     state.isLogged = true;
-    //     state.userId = action.payload.userId;
-    //     state.lastname = action.payload.lastname;
-    //     state.firstname = action.payload.firstname;
-    //     state.image = action.payload.image;
-    //     sessionStorage.setItem('user', JSON.stringify(action.payload));
-    //   }
-    // })
     .addCase(actionUserLogOut, (state) => {
       state.isLogged = false;
       state.user = {

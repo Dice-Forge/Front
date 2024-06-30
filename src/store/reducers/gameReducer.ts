@@ -84,13 +84,8 @@ const gameReducer = createReducer(gameInitialState, (builder) => {
       state.gameDatas[action.payload.name] = action.payload.value;
     })
     .addCase(actionPostGame.fulfilled, (state, action) => {
-      // console.log(
-      //   "bonjour c'est moi le fullfiled de l'action de ses morts.",
-      //   action
-      // );
 
       state.currentGame = action.payload.createdGame;
-      // console.log('Je suis le state de currentGame ', state.currentGame);
     })
     .addCase(actionResetCurrentGame, (state) => {
       state.currentGame = {
@@ -106,15 +101,12 @@ const gameReducer = createReducer(gameInitialState, (builder) => {
       };
     })
     .addCase(actionGetGameById.fulfilled, (state, action) => {
-      console.log('je suis l action :', action);
 
       state.currentGame = action.payload;
 
-      console.log('je suis le state reducer :', state.currentGame);
     })
     .addCase(actionSetGameUrl, (state, action) => {
       if (action.payload) {
-        // state.gameUrl = action.payload.gameUrl;
       }
     })
     .addCase(actionDeleteGame.fulfilled, (state) => {

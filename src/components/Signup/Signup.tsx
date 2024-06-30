@@ -15,13 +15,6 @@ function Signup() {
   const dispatch = useAppDispatch();
 
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
-  // const [userFormData, setUserFormData] = useState<IUser>({
-  //   lastname: '',
-  //   firstname: '',
-  //   email: '',
-  //   password: '',
-  //   confirmPassword: '',
-  // });
   const [lastName, setLastName] = useState<string>('');
   const [firstName, setFirstName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -29,11 +22,6 @@ function Signup() {
   const [confirmPassword, setConfirmPassword] = useState<string>('');
 
   const navigate = useNavigate();
-
-  // const postUser = async (formData: IUser) => {
-  //   const response = await axiosInstance.post('/signup', formData);
-  //   console.log(response);
-  // };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -48,17 +36,6 @@ function Signup() {
     await dispatch(actionCheckLogin());
     navigate('/');
   };
-
-  // const handleChange = (
-  //   event: React.ChangeEvent<HTMLInputElement>,
-  //   inputName: string
-  // ) => {
-  //   event.preventDefault();
-  //   setUserFormData((previousData) => ({
-  //     ...previousData,
-  //     [inputName]: event.target.value,
-  //   }));
-  // };
 
   const handleAvatarChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

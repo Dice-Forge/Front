@@ -8,7 +8,6 @@ const actionGetSheets = createAsyncThunk(
     const response = await axiosInstance.get(
       'http://localhost:3000/api/binder'
     );
-    console.log("Je suis la réponse du thunk d'all sheets ",response.data);
     return(response.data);
   }
   

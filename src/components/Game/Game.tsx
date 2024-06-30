@@ -51,25 +51,6 @@ function Game() {
     dispatch(actionSetGameUrl({ gameUrl: url }));
   }, []);
 
-  // useEffect(() => {
-  //   console.log('Valeur de gameId:', gameId);
-
-  //   const getGameById = async () => {
-  //     try {
-  //       const response = await axiosInstance.get(`/game/${gameId}`);
-  //       if (response.status === 200) {
-  //         setGame(response.data);
-  //         console.log('reponse du axios game', response);
-  //       }
-  //     } catch (error) {
-  //       console.error('erreur lors de la récupération du jeu', error);
-  //     }
-  //   };
-  //   if (gameId) {
-  //     getGameById();
-  //   }
-  // }, [gameId]);
-
   useEffect(() => {
     dispatch(actionGetGameById());
   }, []);

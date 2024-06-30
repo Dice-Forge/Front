@@ -17,7 +17,6 @@ import Login from '../Login/Login';
 import EditProfile from '../Profile/EditProfile';
 import Profile from '../Profile/Profile';
 import ResetPassword from '../Reset-password/Reset-password';
-// import Sheet from '../Sheet/Sheet';
 import Signup from '../Signup/Signup';
 import './App.scss';
 
@@ -25,16 +24,8 @@ function App() {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.auth.user);
   const isLogged = useAppSelector((state) => state.auth.isLogged);
-  // const gameReducer = useAppSelector((state) => state.game);
-  // const gameId = useAppSelector((state) => state.game.games);
-  // console.log('je suis le state de gameId :', gameId);
-  // console.log('je suis le state de gameReducer :', gameReducer);
 
   const navigate = useNavigate();
-
-  // async function refresh() {
-  //   await dispatch(actionRefreshToken());
-  // }
 
   useEffect(() => {
     const token = sessionStorage.getItem('accessToken');
@@ -58,7 +49,6 @@ function App() {
         <Route path="/api/creategame" element={<CreateGame />} />
         <Route path="/api/game/:gameId" element={<Game />} />
         <Route path="/api/createsheet" element={<CreateSheet />} />
-        {/* <Route path="/api/sheet" element={<Sheet />} /> */}
         <Route path="/api/binder/:gameId" element={<Binder />} />
         <Route path="/api/profile" element={<Profile />} />
         <Route path="/api/forgot-password" element={<ForgotPassword />} />

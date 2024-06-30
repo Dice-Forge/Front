@@ -29,11 +29,6 @@ function Chat({ gameUrl }: { gameUrl: string }) {
 
   useEffect(() => {
     socket.current = io('http://localhost:3000');
-
-    /* This part of the code is setting up an event listener on the socket
-    connection for the event named 'message'. When the socket receives a
-    'message' event, it triggers the callback function that takes the incoming
-    message of type `Message` as a parameter. */
     socket.current.on('message', (message: Message) => {
       setMessages((prevMessages) => ({
         ...prevMessages,
@@ -122,12 +117,7 @@ function Chat({ gameUrl }: { gameUrl: string }) {
           />
         ) : (
           messages[activeTab].map((msg) => (
-            <div /* The `key={uuid()}` in the component's rendering is generating a
-            unique identifier for each element in the list. In React, when
-            rendering a list of elements, each element should have a unique
-            `key` prop assigned to it. This helps React efficiently update
-            the UI by identifying which items have changed, are added, or
-            are removed. */
+            <div
               key={uuid()}
               className="chat-message"
             >

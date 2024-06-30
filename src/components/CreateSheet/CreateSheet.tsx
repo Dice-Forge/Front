@@ -30,10 +30,7 @@ interface SheetData {
 }
 
 function CreateSheet() {
-  // const location = useLocation();
-  // const gameId = location.state;
   const gameId = useAppSelector((state) => state.game.currentGame.id);
-  console.log('urlGameId Navlink', gameId);
 
   const [characteristics, setCharacteristics] = useState<Characteristic[]>([
     { id: uuidv4(), name: '', value: '' },
@@ -50,7 +47,6 @@ function CreateSheet() {
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
 
   const userId = useAppSelector((state) => state.auth.user.userId);
-  console.log('je suis le userId', userId);
 
   const dispatch = useAppDispatch();
 
@@ -58,7 +54,6 @@ function CreateSheet() {
     const getGame = async () => {
       try {
         const response = await axiosInstance.get(`/profile/${userId}`);
-        console.log('je suis la reponse du get de profile', response);
         setGames(response.data);
       } catch (error) {
         console.log('error', error);
@@ -155,7 +150,6 @@ function CreateSheet() {
       })),
     };
 
-    console.log('Form data:', datas);
     JSON.stringify(datas);
     postUserCreateSheet(datas);
   };

@@ -16,9 +16,7 @@ function ResetPassword() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
  
-  const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  // const location = useLocation();
 
   const query = new URLSearchParams(location.search);
   const token = query.get('token');
@@ -54,8 +52,6 @@ function ResetPassword() {
       <p className="reset-password-text">
         Veuillez choisir un nouveau mot de passe.
       </p>
-      {message && <Message success content={message} />}
-      {error && <Message negative content={error} />}
       <div className="reset-password-form">
         <Form onSubmit={handleSubmit}>
           <FormInput

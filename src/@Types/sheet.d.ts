@@ -1,4 +1,3 @@
-// src/@Types/sheet.d.ts
 export interface Characteristic {
   id: string;
   name: string;
